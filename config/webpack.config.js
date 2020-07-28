@@ -69,6 +69,8 @@ module.exports = function(webpackEnv) {
 
   // common function to get style loaders
   const getStyleLoaders = (cssOptions, preProcessor) => {
+    cssOptions.modules= {};
+    cssOptions.modules.localIdentName='[name]__[local]__[hash:base64:5]';
     const loaders = [
       isEnvDevelopment && require.resolve('style-loader'),
       isEnvProduction && {
